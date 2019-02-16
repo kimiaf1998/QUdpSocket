@@ -20,24 +20,24 @@ First, we need to add network module to our project file, QUdpSocket.pro:
 # How to Use :
 
 
-    In mainWinodw, I create an instance of UDPSocket class:
+     - In mainWinodw, I create an instance of UDPSocket class:
 
     UDPSocket send_socket;
 
-    In the constructor, MyUDP::MyUDP(), a QUdpSocket will be created:
+     - In the constructor, MyUDP::MyUDP(), a QUdpSocket will be created:
 
     socket = new QUdpSocket(this);
 
-    Then, I bind it to an address and port:
+     - Then, I bind it to an address and port:
 
     socket->bind(QHostAddress::LocalHost, 1234);
 
-    In main(), we call MyUDP::HelloUDP(), and it actually sends data gram:
+     - In main(), we call MyUDP::HelloUDP(), and it actually sends data gram:
 
        sendSocket->writeDatagram(datagram,QHostAddress(QString(this->IP.c_str())),this->port);
       
 
-    When the data comes in, I read that datagram in UDPSocket::readyRead():
+     - When the data comes in, I read that datagram in UDPSocket::readyRead():
 
     socket->readDatagram(buffer.data(), buffer.size(),
                              &sender;, &senderPort;);
